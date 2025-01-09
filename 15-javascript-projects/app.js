@@ -1,18 +1,24 @@
 const btn = document.getElementById("btn");
 const color = document.querySelector(".color");
 const letters = "0123456789ABCDEF";
-const randomColor = getRandomColor();
 
-backgroundColor(randomColor);
+initializeBackground();
 
-function backgroundColor(randomColor) {
-  color.textContent = randomColor;
-  document.body.style.backgroundColor = randomColor;
+function initializeBackground() {
+  const initialColor = getRandomColor();
+  setBackgroundColor(initialColor);
 }
 
-btn.addEventListener("click", function () {
-  const randomColor = getRandomColor();
-  backgroundColor(randomColor);
+function setBackgroundColor(colorValue) {
+  if (color) {
+    color.textContent = colorValue;
+  }
+  document.body.style.backgroundColor = colorValue;
+}
+
+btn?.addEventListener("click", function () {
+  const newColor = getRandomColor();
+  setBackgroundColor(newColor);
 });
 
 function getRandomColor() {
